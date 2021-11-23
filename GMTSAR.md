@@ -118,5 +118,5 @@ https://topex.ucsd.edu/gmtsar/demgen/
 2. cd ../F1; mkdir raw; cd raw; link_S1.csh ../../data/ 1; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
 3. cd ../../F2; mkdir raw; cd raw; link_S1.csh ../../data/ 2; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
 4. cd ../../F3; mkdir raw; cd raw; link_S1.csh ../../data/ 3; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
-5. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1;
+5. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../ ; 接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  preproc_batch_tops.csh data.in dem.grd 2
 
