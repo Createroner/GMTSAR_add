@@ -101,6 +101,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 
 ### 自己写的东西
 1. ls -d disp_* > dislist  ， 把此文件夹里面包含disp地全部放到dislist 里面去
+2. 当出现permisission denied : chmod 777 /usr/local/GMTSAR/bin/unzip_sentinel-1.csh 
 
 
 ### ALOS实验
