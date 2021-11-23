@@ -113,4 +113,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 6. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2269930700-190523-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 正在进行
 7. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2278210700-190718-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 待命
 
+### 命令总结
+1. 到data文件夹 unzip_sentinel-1.csh /data/panzhihua-26-11  11/23/20：00 
+2. 
 
