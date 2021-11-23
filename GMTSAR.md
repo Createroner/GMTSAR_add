@@ -18,7 +18,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 
 下载好这些数据之后建立一个文件夹，这个文件夹需要包括
 - data : 文件夹，用于存放下载好的Sentinel-1数据，然后cd到data目录下用unzip_sentinel-1.csh /data ， 并且把精轨数据的文件也拷到data目录下面。
-- orbit : 精轨数据文件夹，将下载好的精轨数据放到该文件夹下面
+- orbit : 精轨数据文件夹，将下载好的精轨hmo数据放到该文件夹下面
 - topo : DEM数据文件夹，将下载好的dem.grd放到该文件夹下面
 - F1 ： 这个文件是用来存放IW1第一个burst的数据的。文件夹下面需要创建raw文件夹，topo文件夹，然后cd到raw文件夹下面，现在需要做的是把IW1数据软连接到raw文件目录下面，
 1. 使用./link_S1.csh  [directory]  [num] ， directory为解压后的SAR数据目录。也就是上面的data目录，num为burst的序号，选择1，2，3。对于F1则为选1。软连接了数据之后，下一步需要软连接的是DEM数据，
@@ -114,6 +114,9 @@ https://topex.ucsd.edu/gmtsar/demgen/
 7. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2278210700-190718-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 待命
 
 ### 命令总结
-1. 到data文件夹 unzip_sentinel-1.csh /data/panzhihua-26-11  11/23/20：00 
-2. 
+1. 到data文件夹 unzip_sentinel-1.csh /data/panzhihua-26-11  11/23/20：00  ~ 11/23/22：00 ， 花了两个小时
+2. cd ../F1; link_S1.csh ../data/ 1 ; link_S1_orbits.csh ../orbit/; ln -s ../topo/dem.grd
+3. cd ../F2; link_S1.csh ../data/ 2 ; link_S1_orbits.csh ../orbit/; ln -s ../topo/dem.grd
+4. cd ../F3; link_S1.csh ../data/ 3 ; link_S1_orbits.csh ../orbit/; 
+5. 
 
