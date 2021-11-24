@@ -122,7 +122,11 @@ https://topex.ucsd.edu/gmtsar/demgen/
 5. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  preproc_batch_tops.csh data.in dem.grd 2     11/23/22.30 ~ 11/24/13.30 花了14个小时
 6. cd ../../F2/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 接下来修改data.in，把master放在第一个s1a-iw2:-slc-vv-20180811t111556; preproc_batch_tops.csh data.in dem.grd 2
 7. cd ../../F3/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../;  接下来修改data.in，把master放在第一个s1a-iw3:-slc-vv-20180811t111556;preproc_batch_tops.csh data.in dem.grd 2
-
+8. cd ../../F1/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F1.PRM;
+9. cd ../../F2/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F2.PRM;
+10. cd ../../F3/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F3.PRM;
+11. cd ../../F1; rm -rf baseline_table.dat; cp raw/baseline_table.dat ./; cp intf.in ../F2; cp intf.in ../F3;
+12. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
 
