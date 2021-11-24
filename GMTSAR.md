@@ -114,9 +114,12 @@ https://topex.ucsd.edu/gmtsar/demgen/
 7. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2278210700-190718-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 待命
 
 ### 命令总结
+## 攀枝花26-11轨道数据处理一共117景数据
 1. 到data文件夹 unzip_sentinel-1.csh /data/panzhihua-26-11  11/23/20：00  ~ 11/23/22：00 ， 花了两个小时
 2. cd ../F1; mkdir raw; cd raw; link_S1.csh ../../data/ 1; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
 3. cd ../../F2; mkdir raw; cd raw; link_S1.csh ../../data/ 2; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
 4. cd ../../F3; mkdir raw; cd raw; link_S1.csh ../../data/ 3; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
-5. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../ ; 接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  preproc_batch_tops.csh data.in dem.grd 2
+5. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  preproc_batch_tops.csh data.in dem.grd 2     11/23/10.30
+6. cd ../../F2/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 接下来修改data.in，把master放在第一个s1a-iw2:-slc-vv-20180811t111556; preproc_batch_tops.csh data.in dem.grd 2
+7. cd ../../F3/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../;  接下来修改data.in，把master放在第一个s1a-iw3:-slc-vv-20180811t111556;preproc_batch_tops.csh data.in dem.grd 2
 
