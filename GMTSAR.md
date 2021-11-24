@@ -127,6 +127,10 @@ https://topex.ucsd.edu/gmtsar/demgen/
 10. cd ../../F3/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F3.PRM;
 11. cd ../../F1; rm -rf baseline_table.dat; cp raw/baseline_table.dat ./; cp intf.in ../F2; cp intf.in ../F3;
 12. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
+13. 接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F1 ; threshold_geocode = 0 每个F* 文件都需要
+14. head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ; intf_tops.csh one.in batch_tops.config
+15. cd ../F2; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40
+16. cd ../F3; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/;intf_tops.csh one.in batch_tops.config;
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
 
