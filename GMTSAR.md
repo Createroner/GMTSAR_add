@@ -136,6 +136,12 @@ https://topex.ucsd.edu/gmtsar/demgen/
 19. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 花费两个小时
 20. 在merge文件夹下面 unwrap_parallel.csh intflist 40; 16.35开始
 
+### 自动匹配精轨数据
+1. X:\S1PreOrb\S1A 这个地方存放了所有的精轨数据
+2. F:\GMTSAR\myscript\find_orbit_copy.py : 这个是自动从数据库中查找精轨数据
+3. fing_orbit_copy.py /media/wangjing/data/greece/datadir /media/wangjing/data/greece/orbit S1A
+4. ren * *.EOF 这个命令可以把所有的xml格式转换为EOF格式
+
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
 
