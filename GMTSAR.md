@@ -133,7 +133,8 @@ https://topex.ucsd.edu/gmtsar/demgen/
 16. cd ../F2; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
 17. cd ../F3; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/;intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2; intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
 18. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
-19. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 14:32 ~ 
+19. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 花费两个小时
+20. 在merge文件夹下面 unwrap_parallel.csh intflist 40;
 
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
