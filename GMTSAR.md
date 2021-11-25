@@ -144,10 +144,14 @@ https://topex.ucsd.edu/gmtsar/demgen/
 
 ### GMT命令
 1. plot_png.csh phasefilt ./png/wrap 在merge里面创建png文件，将phasefilt.grd文件转换为png
-2. df  -lh : 可以查看所有盘的内存
-3. https://blog.csdn.net/wade1010/article/details/83271104 安装ghostscript
-4. 
-
+2. merge# plot_png.csh unwrap ./png/unwrap 画解缠后的图
+3. df  -lh : 可以查看所有盘的内存
+4. https://blog.csdn.net/wade1010/article/details/83271104 安装ghostscript
+5. 
+### GACOS 下载
+1. http://www.gacos.net/ 网站 ， 记得要选择binary grid
+2. 128-3 轨道 100.5 104 35.0 37.5
+3. 26-11 轨道 100.5 103.6 26.0 28.5
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
 
