@@ -142,6 +142,12 @@ https://topex.ucsd.edu/gmtsar/demgen/
 3. fing_orbit_copy.py /media/wangjing/data/greece/datadir /media/wangjing/data/greece/orbit S1A
 4. ren * *.EOF 这个命令可以把所有的xml格式转换为EOF格式
 
+### GMT命令
+1. plot_png.csh phasefilt ./png/wrap 在merge里面创建png文件，将phasefilt.grd文件转换为png
+2. df  -lh : 可以查看所有盘的内存
+3. https://blog.csdn.net/wade1010/article/details/83271104 安装ghostscript
+4. 
+
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
 
