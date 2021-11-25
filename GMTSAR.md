@@ -110,8 +110,8 @@ https://topex.ucsd.edu/gmtsar/demgen/
 3. 运行命令p2p_processing.csh ALOS2 IMG-HH-ALOS2011986990-140813-HBQR1.1__A IMG-HH-ALOS2014056990-140827-HBQR1.1__A config.ALOS2.txt
 4. 已经完成190117-190228 ，190117-190523
 5. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2257510700-190228-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190228） 已经完成
-6. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2269930700-190523-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 正在进行
-7. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2278210700-190718-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 待命
+6. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2269930700-190523-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 已经完成
+7. p2p_processing.csh ALOS2 IMG-HH-ALOS2251300700-190117-FBDR1.1__A IMG-HH-ALOS2278210700-190718-FBDR1.1__A config.ALOS2.txt   （这个命令是190117-190523） 正在运行
 
 ### 命令总结
 ## 攀枝花26-11轨道数据处理一共117景数据
@@ -133,7 +133,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 16. cd ../F2; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
 17. cd ../F3; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/;intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2; intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
 18. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
-19. 
+19. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 14:32 ~ 
 
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″
