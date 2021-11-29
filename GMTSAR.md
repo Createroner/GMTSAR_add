@@ -158,3 +158,10 @@ https://topex.ucsd.edu/gmtsar/demgen/
 
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″  26-93 可以直接在ASF中的filter里面的最后一行查找，26是orbit, 93是Frames
 
+## SBAS原理
+$$\begin{matrix}
+0&1&1\\
+1&1&0\\
+1&0&1\\
+\end{matrix}$$
+
