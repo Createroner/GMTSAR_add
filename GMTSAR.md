@@ -89,6 +89,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 
 ### bash 命令
 1. bash select_pairs.sh baseline_table.dat 50 100
+2. rm -rf ./*.zip ： 删除该文件夹里面的所有后缀为.zip的文件
 
 ###  tcsh
 1. 以后所有的gmtsar都在tcsh上面运行
@@ -159,9 +160,5 @@ https://topex.ucsd.edu/gmtsar/demgen/
 ## 折多山实验，折多山的经纬度 101°47′48.09″ 30°06′47.63″  26-93 可以直接在ASF中的filter里面的最后一行查找，26是orbit, 93是Frames
 
 ## SBAS原理
-$$\begin{matrix}
-0&1&1\\
-1&1&0\\
-1&0&1\\
-\end{matrix}$$
+ax^{2} + by^{2} + c = 0
 
