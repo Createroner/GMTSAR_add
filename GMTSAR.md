@@ -17,7 +17,7 @@ https://s1qc.asf.alaska.edu/aux_poeorb/
 3. DEM数据
 https://topex.ucsd.edu/gmtsar/demgen/
 
-4. https://srtm.csi.cgiar.org/download/ SRTM数据
+4. https://srtm.csi.cgiar.org/download/ SRTM数据  https://www.cnblogs.com/xionglee/articles/5688241.html SRTM说明
 
 下载好这些数据之后建立一个文件夹，这个文件夹需要包括
 - data : 文件夹，用于存放下载好的Sentinel-1数据，然后cd到data目录下用unzip_sentinel-1.csh /data ， 并且把精轨数据的文件也拷到data目录下面。
