@@ -11,6 +11,7 @@ modified: '2021-11-23T01:25:18.515Z'
 一共需要准备Sentinel1数据，精轨数据，DEM数据，可以在以下网站进行下载
 1. Sentinel数据
 https://search.asf.alaska.edu
+urs.earthdata.nasa.gov IDM 链接 ， 记得在连接里面选择https
 2. 精轨数据
 https://s1qc.asf.alaska.edu/aux_poeorb/
 3. DEM数据
