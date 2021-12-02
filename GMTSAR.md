@@ -174,6 +174,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 3. df  -lh : 可以查看所有盘的内存
 4. https://blog.csdn.net/wade1010/article/details/83271104 安装ghostscript
 6. F:\GMTSAR\myscript\plot_ll.csh 画形变速率图  plot_ll.csh vel_ll.grd
+7. https://docs.gmt-china.org/latest/tutorial/get-started/windows/ 这个是GMT的中文官方文档
 ### GACOS 下载
 1. http://www.gacos.net/ 网站 ， 记得要选择binary grid
 2. 128-3 轨道 100.5 104 35.0 37.5
