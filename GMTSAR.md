@@ -72,6 +72,7 @@ https://topex.ucsd.edu/gmtsar/demgen/
 2. 激活conda activate pygmt
 3. 将.ps文件转换为.jpg文件gmt psconvert -A baseline.ps
 4. >gmt grdimage phase.grd -JX6i+ -I+d -jpg map 
+5. gdalinfo dem.grd ：可以查看.grd图像的信息
 
 ### docker 命令
 - sudo docker images : 查看镜像
@@ -182,5 +183,22 @@ https://topex.ucsd.edu/gmtsar/demgen/
 1. 20200109是主影像
 
 ## SBAS原理
-ax^{2} + by^{2} + c = 0
+ax^{2} + by^{2} + c = 0 
+
+### 142-4-2020数据 一共31景数据
+1. 数据存放在 W:/Subsidence/HuaBei/Sentinel-1/Orbit-142/142-4/142-4-2020/data
+2. 
+3. 寻找精轨数据 ，orbit文件夹一定要创建在data目录下面 打开prompt , F: , cd F:\GMTSAR\myscript; python find_orbit_copy.py W:/Subsidence/HuaBei/Sentinel-1/Orbit-142/142-4/142-4-2020/data X:/S1PreOrb/ S1A
+4. 下一步查询DEM数据， 114.4，117.8 , 37.2, 39.5
+5. cd /data/142-4-2020/; cd data/; unzip.py 即在进行并行的解压
+6. cd ../F1; mkdir raw; cd raw; link_S1.csh ../../data/ 1; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
+8. cd ../../F2; mkdir raw; cd raw; link_S1.csh ../../data/ 2; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
+9. cd ../../F3; mkdir raw; cd raw; link_S1.csh ../../data/ 3; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
+10. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 
+11. 选择s1a-iw1-slc-vv-20200609t101324 为主影像；接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  
+12. 
+
+### 下载数据
+1. 上传到NASA上的X:\worldCity
+2. Z:\newDataRequie\北美
 
