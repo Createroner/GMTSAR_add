@@ -197,7 +197,7 @@ ax^{2} + by^{2} + c = 0
 9. cd ../../F3; mkdir raw; cd raw; link_S1.csh ../../data/ 3; link_S1_orbits.csh ../../orbit/; ln -s ../../topo/dem.grd
 10. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 
 11. 选择s1a-iw1-slc-vv-20200609t101324 为主影像；接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  
-12. 
+12. cd ../../F2/raw; preproc_batch_tops.csh data.in dem.grd 1;mv baseline_table.dat ../;接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20200609t101324; preproc_batch_tops.csh data.in dem.grd 2
 
 ### 下载数据
 1. 上传到NASA上的X:\worldCity
