@@ -207,9 +207,9 @@ ax^{2} + by^{2} + c = 0
 17. cp intf.in ../F2; cp intf.in ../F3;
 18. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
 19. cp /usr/local/GMTSAR/bin/batch_tops.config ../; cd ../ 到主目录下面;  cp batch_tops.config F1/;cp batch_tops.config F2/; cp batch_tops.config F3/;
-20. cd F1/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; 接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F1 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config
-21. cd ../F2/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F2 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
-22. cd ../F3/;head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F3 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
+20. cd F1/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; 接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F1 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config; 修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40
+21. cd ../F2/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F2 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
+22. cd ../F3/;head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F3 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
 
 
 
