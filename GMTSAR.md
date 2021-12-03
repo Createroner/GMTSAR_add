@@ -210,8 +210,8 @@ ax^{2} + by^{2} + c = 0
 20. cd F1/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; 接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F1 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config; 修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40
 21. cd ../F2/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F2 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40
 22. cd ../F3/;head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20200609_ALL_F3 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40
-到此为止则生成完毕了干涉对， 接下来是把IW1,IW2,IW3进行merge，把他们合成一步
-23. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
+23. 到此为止则生成完毕了干涉对， 接下来是把IW1,IW2,IW3进行merge，把他们合成一步
+24. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
 25. gmt grdinfo ../merge/2020148_2020196/unwrap.grd ; x n_columns: 8548; y n_rows: 6532; 干涉对数量91；31景图像； sbas intf.tab scene.tab 91 31 8548 6532 ; 
 
 
