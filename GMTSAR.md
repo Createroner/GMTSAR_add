@@ -148,19 +148,21 @@ https://topex.ucsd.edu/gmtsar/demgen/
 8. cd ../../F1/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F1.PRM;
 9. cd ../../F2/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F2.PRM;
 10. cd ../../F3/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20180811_ALL_F3.PRM;
-11. cd ../../F1; rm -rf baseline_table.dat; cp raw/baseline_table.dat ./; cp intf.in ../F2; cp intf.in ../F3;
-12. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
-13. 接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F1 ; threshold_geocode = 0 每个F* 文件都需要
-14. head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ; intf_tops.csh one.in batch_tops.config
-15. cd ../F1; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
-16. cd ../F2; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
-17. cd ../F3; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/;intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2; intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
-18. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
-19. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 花费两个小时
-20. 在merge文件夹下面 unwrap_parallel.csh intflist 40; 16.35  需要花费一天左右
-21. cd ..; mkdir sbas; cd sbas ; cp ../merge/intf.in ./; cp ../F1/baseline_table.dat ./;prep_sbas.csh intf.in baseline_table.dat ../merge unwrap.grd corr.grd; 这一步将会生成scene.tab 和 intf.tab; 
-22. prep_sbas.csh intf.in baseline_table.dat ../merge unwrap_gacos_corrected_detrended.grd corr.grd ： 这个命令可以用来生成利用GACOS矫正后的结果用来做SBAS
-23. gmt grdinfo ../merge/2021134_2021182/unwrap.grd 查看x n_columns: 8547 , y n_rows: 6765; sbas intf.tab scene.tab 387 117 8547 6765 ; 387是干涉对的数量，117是多少景图，后面两个参数是前面查到的
+11. cd ../../F1; rm -rf baseline_table.dat; cp raw/baseline_table.dat ./; 
+12. select_pairs.csh baseline_table.dat 50 100
+13. cp intf.in ../F2; cp intf.in ../F3;
+14. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
+15. 接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F1 ; threshold_geocode = 0 每个F* 文件都需要
+16. head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ; intf_tops.csh one.in batch_tops.config
+17. cd ../F1; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
+18. cd ../F2; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2;intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
+19. cd ../F3; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/;intf_tops.csh one.in batch_tops.config;修改set proc_stage = 2; intf_tops_parallel.csh intf.in batch_tops.config 40   花费一个小时
+20. cd ../; mkdir merge; cd merge; cp ../F1/intf.in ./; ls ../F1/intf_all/ > intflist ; create_merge_input.csh intflist .. 0 > merge_list; 修改merge_list, 把包含主影像放到第一行
+21. cp ../F2/batch_tops.config ./; ln -s ../topo/dem.grd ./; merge_batch.csh merge_list batch_tops.config 花费两个小时
+22. 在merge文件夹下面 unwrap_parallel.csh intflist 40; 16.35  需要花费一天左右
+23. cd ..; mkdir sbas; cd sbas ; cp ../merge/intf.in ./; cp ../F1/baseline_table.dat ./;prep_sbas.csh intf.in baseline_table.dat ../merge unwrap.grd corr.grd; 这一步将会生成scene.tab 和 intf.tab; 
+24. prep_sbas.csh intf.in baseline_table.dat ../merge unwrap_gacos_corrected_detrended.grd corr.grd ： 这个命令可以用来生成利用GACOS矫正后的结果用来做SBAS
+25. gmt grdinfo ../merge/2021134_2021182/unwrap.grd 查看x n_columns: 8547 , y n_rows: 6765; sbas intf.tab scene.tab 387 117 8547 6765 ; 387是干涉对的数量，117是多少景图，后面两个参数是前面查到的
 
 ### 自动匹配精轨数据
 1. X:\S1PreOrb\S1A 这个地方存放了所有的精轨数据
@@ -198,6 +200,18 @@ ax^{2} + by^{2} + c = 0
 10. cd ../../F1/raw; preproc_batch_tops.csh data.in dem.grd 1; mv baseline_table.dat ../; 
 11. 选择s1a-iw1-slc-vv-20200609t101324 为主影像；接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20180811t111556;  
 12. cd ../../F2/raw; preproc_batch_tops.csh data.in dem.grd 1;mv baseline_table.dat ../;接下来修改data.in，把master放在第一个s1a-iw1-slc-vv-20200609t101324; preproc_batch_tops.csh data.in dem.grd 2
+13. cd ../../F1/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20200609_ALL_F1.PRM; 这一步生成新的baseline_table
+14. cd ../../F2/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20200609_ALL_F2.PRM;
+15. cd ../../F3/raw; ls *ALL*PRM > prmlist; get_baseline_table.csh prmlist S1_20200609_ALL_F3.PRM;
+16. cd ../../F1; rm -rf baseline_table.dat; cp raw/baseline_table.dat ./; select_pairs.csh baseline_table.dat 50 100; 这一步生成intf.in
+17. cp intf.in ../F2; cp intf.in ../F3;
+18. cd ../F2; vi intf.in; :%s/F1/F2/g 这一步可能需要手动; cd ../F3; vi intf.in; :%s/F1/F3/g; 
+19. cp /usr/local/GMTSAR/bin/batch_tops.config ../; cd ../ 到主目录下面;  cp batch_tops.config F1/;cp batch_tops.config F2/; cp batch_tops.config F3/;
+20. cd F1/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/; 接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F1 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config
+21. cd ../F2/; head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F2 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
+22. cd ../F3/;head -1 intf.in > one.in; mkdir topo ; cp ../topo/dem.grd topo/ ;接下里需要修改batch_topo.config : master_image = S1_20180508_ALL_F3 ; threshold_geocode = 0; intf_tops.csh one.in batch_tops.config;
+
+
 
 ### 下载数据
 1. 上传到NASA上的X:\worldCity
