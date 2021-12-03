@@ -16,6 +16,8 @@ urs.earthdata.nasa.gov IDM 链接 ， 记得在连接里面选择https
 https://s1qc.asf.alaska.edu/aux_poeorb/
 3. DEM数据
 https://topex.ucsd.edu/gmtsar/demgen/
+4. GACOS大气数据
+http://www.gacos.net/
 
 4. https://srtm.csi.cgiar.org/download/ SRTM数据  https://www.cnblogs.com/xionglee/articles/5688241.html SRTM说明
 
@@ -218,6 +220,8 @@ ax^{2} + by^{2} + c = 0
 28. 到此为止则完成了Unwrap的过程，接下来要进行的SBAS的过程
 30. cd ..; mkdir sbas; cd sbas ; cp ../merge/intf.in ./; cp ../F1/baseline_table.dat ./;prep_sbas.csh intf.in baseline_table.dat ../merge unwrap.grd corr.grd; 这一步将会生成scene.tab 和 intf.tab
 31. gmt grdinfo ../merge/2020148_2020196/unwrap.grd ; x n_columns: 8548; y n_rows: 6532; 干涉对数量91；31景图像； sbas intf.tab scene.tab 91 31 8548 6532 ; 
+32. 在经过上面步骤完成了SBAS的过程，这个过程是没有增加GACOS的过程，以下换另外一种可以做GACOS去大气的过程，从上面的28步开始，也就是解缠之后再进行
+33. 
 
 
 
