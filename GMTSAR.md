@@ -221,7 +221,15 @@ ax^{2} + by^{2} + c = 0
 30. cd ..; mkdir sbas; cd sbas ; cp ../merge/intf.in ./; cp ../F1/baseline_table.dat ./;prep_sbas.csh intf.in baseline_table.dat ../merge unwrap.grd corr.grd; 这一步将会生成scene.tab 和 intf.tab
 31. gmt grdinfo ../merge/2020148_2020196/unwrap.grd ; x n_columns: 8548; y n_rows: 6532; 干涉对数量91；31景图像； sbas intf.tab scene.tab 91 31 8548 6532 ; 
 32. 在经过上面步骤完成了SBAS的过程，这个过程是没有增加GACOS的过程，以下换另外一种可以做GACOS去大气的过程，从上面的28步开始，也就是解缠之后再进行
-33. 
+33. 在merge文件夹下面：使用GACOS的脚本是make_gacos_correction_ra.csh ，vim /usr/local/GMTSAR/bin/make_gacos_correction_ra.csh  需要修改的参数是第9行，改成下载好的GACOS的路径
+34. set intfile = intflist  #interferogram folder list
+35. set gacos_path = /data/142-4-2020/merge/gacos # GACOS file (*.ztd, *.rsc) path
+36. make_gacos_correction_ra.csh
+37. 经过上面的步骤，则完成了整个去除大气的过程，接下来则和没有去除大气的过程一样，需要做的是sbas
+
+
+
+
 
 
 
