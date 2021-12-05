@@ -233,10 +233,11 @@ ax^{2} + by^{2} + c = 0
 42. proj_ra2ll.csh trans.dat vel.grd vel_ll.grd; 生成vel_ll.grd则是经过地理编码之后的
 43. gmt grd2cpt vel_ll.grd -T= -Z -Cjet > vel_ll.cpt;
 44. grd2kml.csh vel_ll vel_ll.cpt; 则生成kml
-45. 使用plot_png.csh和plot_ll.csh脚本
-46. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
-47. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
-48. plot_ll.csh  vel.grd
+45.  plot_ll.csh vel_ll.grd; 使用生成png
+46. 使用plot_png.csh和plot_ll.csh脚本
+47. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
+48. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
+49. plot_ll.csh  vel.grd
 
 
 
