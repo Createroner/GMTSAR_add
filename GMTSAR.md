@@ -242,6 +242,13 @@ ax^{2} + by^{2} + c = 0
 51. gdal_translate -of GTiff -a_nodata NAN vel_ll.grd out.tif : 离散值给他取0
 
 
+### 当用GMTSAR跑出来的结果的时候，出的结果是.grd格式的数据，接下来则需要将其转换成标准的tif格式
+1. 首先利用命令gdal_translate -of GTiff vel_ll.grd out.tif
+2. 用ARCGIS打开，发现显示背景值存在一定的问题，现在需要做的是对背景值进行一定的修正，参考https://www.sohu.com/a/421740168_488161
+3. ArcToolbox -> 数据管理工具 -> 栅格 -> 栅格数据集 -> 复制栅格 -> NoData 值设置成-999 , 像素类型选择为16_BIT_SIGNED
+4. 然后右键图层的邮件属性-> 符号系统 -> 显示背景值，0为白色 就可以发现背景没有了
+
+
 
 
 
