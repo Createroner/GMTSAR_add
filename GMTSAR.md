@@ -227,10 +227,16 @@ ax^{2} + by^{2} + c = 0
 36. make_gacos_correction_ra.csh
 37. 经过上面的步骤，则完成了整个去除大气的过程，接下来则和没有去除大气的过程一样，需要做的是sbas，sbas intf.tab scene.tab 387 117 8547 6765， 这个命令一定要注意scene.tab和scene.tab里面的参数都是经过大气矫正之后的
 38. 经过完成了sbas之后会生成vel.grd等形变速率的文件，接下来需要做的是对这些文件进行一定的可视化
-39. 使用plot_png.csh和plot_ll.csh脚本
-40. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
-41. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
-42. plot_ll.csh  vel.grd
+39. 接下来需要的是进行地理编码，然后才能进行可视化
+40. 在sbas目录下面ln -s ../merge/trans.dat; 
+41. ln -s ../F1/intf_all/2020352_2020364/gauss_*; 其中时间那个地方改成有的
+42. proj_ra2ll.csh trans.dat vel.grd vel_ll.grd; 生成vel_ll.grd则是经过地理编码之后的
+43. gmt grd2cpt vel_ll.grd -T= -Z -Cjet > vel_ll.cpt;
+44. grd2kml.csh vel_ll vel_ll.cpt; 则生成kml
+45. 使用plot_png.csh和plot_ll.csh脚本
+46. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
+47. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
+48. plot_ll.csh  vel.grd
 
 
 
