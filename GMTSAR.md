@@ -225,7 +225,12 @@ ax^{2} + by^{2} + c = 0
 34. set intfile = intflist  #interferogram folder list
 35. set gacos_path = /data/142-4-2020/merge/gacos # GACOS file (*.ztd, *.rsc) path
 36. make_gacos_correction_ra.csh
-37. 经过上面的步骤，则完成了整个去除大气的过程，接下来则和没有去除大气的过程一样，需要做的是sbas
+37. 经过上面的步骤，则完成了整个去除大气的过程，接下来则和没有去除大气的过程一样，需要做的是sbas，sbas intf.tab scene.tab 387 117 8547 6765， 这个命令一定要注意scene.tab和scene.tab里面的参数都是经过大气矫正之后的
+38. 经过完成了sbas之后会生成vel.grd等形变速率的文件，接下来需要做的是对这些文件进行一定的可视化
+39. 使用plot_png.csh和plot_ll.csh脚本
+40. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
+41. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
+42. plot_ll.csh  vel.grd
 
 
 
