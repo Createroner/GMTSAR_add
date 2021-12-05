@@ -238,6 +238,7 @@ ax^{2} + by^{2} + c = 0
 47. 先把形变速率文件放在一个随意命名的20文件夹里面，然后把vel.grd拷贝到这个文件夹里面，接下来运行
 48. plot_png.csh vel ./2055/ , 则将会在2055文件夹下面生成.ps和cpt渲染文件
 49. plot_ll.csh  vel.grd
+50. gdal_translate -of GTiff vel_ll.grd out.tif 可以用来生成tif
 
 
 
