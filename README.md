@@ -7,4 +7,5 @@
 2. F:; cd  F:\GMTSAR\myscript; 
 3. python F:\GMTSAR\myscript\grd_tif.py D:\GMTSAR-Processing\142-4-2020\no_gacos\sbas D:\GMTSAR-Processing\142-4-2020\no_gacos\sbas\vel
 4. 最终将会在vel目录下面生成最终所有的tif
-### cp_png.csh : 
+### cp_png.csh : 这个文件是将在merge目录下面，将一系列的图进行复制到一个统一的文件夹下面
+1. cp_png.csh unwrap.pdf unwrap ： 第一个参数是需要拷贝的文件的名称，第二个参数是目标目录
