@@ -7,3 +7,4 @@
 2. F:; cd  F:\GMTSAR\myscript; 
 3. python F:\GMTSAR\myscript\grd_tif.py D:\GMTSAR-Processing\142-4-2020\no_gacos\sbas D:\GMTSAR-Processing\142-4-2020\no_gacos\sbas\vel
 4. 最终将会在vel目录下面生成最终所有的tif
+### cp_png.csh : 
